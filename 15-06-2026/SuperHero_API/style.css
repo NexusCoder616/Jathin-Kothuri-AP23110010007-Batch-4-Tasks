@@ -1,0 +1,211 @@
+/* RESET */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    min-height:100vh;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+/* ---------- NAVBAR ---------- */
+
+nav{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    height:70px;
+    padding:0 40px;
+}
+
+.nav-links{
+    display:flex;
+    gap:20px;
+    list-style:none;
+}
+
+.nav-links a{
+    text-decoration:none;
+}
+
+/* ---------- HERO ---------- */
+
+.hero{
+    display:flex;
+    min-height:600px;
+}
+
+.hero-content{
+    flex:1;
+
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+
+    padding:50px;
+}
+
+.hero-buttons{
+    display:flex;
+    gap:15px;
+    margin-top:20px;
+}
+
+.hero-image{
+    flex:1;
+}
+
+/* ---------- FEATURES ---------- */
+
+.feature{
+    display:flex;
+    min-height:500px;
+}
+
+.feature-text{
+    flex:1;
+
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+
+    padding:50px;
+}
+
+.feature-media{
+    flex:1;
+}
+
+/* ---------- CHANNEL GRID ---------- */
+
+.channels{
+    padding:60px;
+}
+
+.channel-grid{
+    display:grid;
+
+    grid-template-columns:
+        repeat(auto-fit, minmax(180px, 1fr));
+
+    gap:20px;
+
+    margin-top:30px;
+}
+
+.channel-card{
+    height:120px;
+}
+
+/* ---------- MOVIES ---------- */
+
+.movies{
+    padding:60px;
+}
+
+.movie-row{
+    display:flex;
+    gap:20px;
+
+    overflow-x:auto;
+
+    margin-top:20px;
+}
+
+.movie-card{
+    min-width:220px;
+    height:320px;
+}
+
+/* ---------- SHOWS ---------- */
+
+.shows{
+    padding:60px;
+}
+
+.show-row{
+    display:flex;
+    gap:20px;
+
+    overflow-x:auto;
+
+    margin-top:20px;
+}
+
+.show-card{
+    min-width:220px;
+    height:320px;
+}
+
+/* ---------- CTA ---------- */
+
+.cta{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+
+    min-height:300px;
+
+    text-align:center;
+    gap:20px;
+}
+
+/* ---------- FOOTER ---------- */
+
+footer{
+    padding:60px;
+}
+
+.footer-links{
+    display:flex;
+    justify-content:space-between;
+
+    margin:40px 0;
+}
+
+.footer-column ul{
+    list-style:none;
+}
+
+.footer-column li{
+    margin:10px 0;
+}
+
+.footer-column a{
+    text-decoration:none;
+}
+
+.copyright{
+    text-align:center;
+}
+
+/* ---------- MOBILE ---------- */
+
+@media(max-width:768px){
+
+    nav{
+        flex-direction:column;
+        height:auto;
+        gap:15px;
+        padding:20px;
+        color:black;
+    }
+
+    .hero{
+        flex-direction:column;
+    }
+
+    .feature{
+        flex-direction:column;
+    }
+
+    .footer-links{
+        flex-direction:column;
+        gap:30px;
+    }
+
+}
