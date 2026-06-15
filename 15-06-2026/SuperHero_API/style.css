@@ -1,4 +1,3 @@
-/* RESET */
 *{
     margin:0;
     padding:0;
@@ -10,7 +9,6 @@ body{
     font-family:Arial, Helvetica, sans-serif;
 }
 
-/* ---------- NAVBAR ---------- */
 
 nav{
     display:flex;
@@ -31,7 +29,6 @@ nav{
     text-decoration:none;
 }
 
-/* ---------- HERO ---------- */
 
 .hero{
     display:flex;
@@ -58,7 +55,6 @@ nav{
     flex:1;
 }
 
-/* ---------- FEATURES ---------- */
 
 .feature{
     display:flex;
@@ -79,7 +75,6 @@ nav{
     flex:1;
 }
 
-/* ---------- CHANNEL GRID ---------- */
 
 .channels{
     padding:60px;
@@ -100,7 +95,6 @@ nav{
     height:120px;
 }
 
-/* ---------- MOVIES ---------- */
 
 .movies{
     padding:60px;
@@ -120,8 +114,6 @@ nav{
     height:320px;
 }
 
-/* ---------- SHOWS ---------- */
-
 .shows{
     padding:60px;
 }
@@ -140,7 +132,7 @@ nav{
     height:320px;
 }
 
-/* ---------- CTA ---------- */
+
 
 .cta{
     display:flex;
@@ -153,8 +145,6 @@ nav{
     text-align:center;
     gap:20px;
 }
-
-/* ---------- FOOTER ---------- */
 
 footer{
     padding:60px;
@@ -183,7 +173,6 @@ footer{
     text-align:center;
 }
 
-/* ---------- MOBILE ---------- */
 
 @media(max-width:768px){
 
