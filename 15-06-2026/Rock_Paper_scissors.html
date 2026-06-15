@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock Paper Scissors</title>
+    <style>
+        body 
+        { font-family: Arial, sans-serif;
+         margin: 0; background: #f3f4f6;
+          }
+        .box { 
+        max-width: 420px;
+         margin: 80px auto;
+        background: #fff;
+        padding: 24px;
+        border-radius: 12px;
+         box-shadow: 0 6px 18px rgba(0,0,0,.12);
+          text-align: center; }
+        button {
+             margin: 6px;
+            padding: 10px 16px;
+         border: 0; 
+         border-radius: 8px;
+         background: #2563eb;
+         color: #fff;
+         cursor: pointer; }
+        button:hover 
+        { 
+            background: #1d4ed8;
+         }
+        #result 
+        { 
+            margin-top: 18px;
+            font-size: 18px;
+            font-weight: 600; }
+
+            
+    </style>
+</head>
+<body>
+    <main class="box">
+        <h2>Rock Paper Scissors</h2>
+        <p>Choose one and play with the computer.</p>
+        <div class="choices">
+
+    <div class="card" onclick="play('rock')">
+        <img src="https://em-content.zobj.net/source/apple/391/raised-fist_270a.png">
+        <h3>Rock</h3>
+    </div>
+
+    <div class="card" onclick="play('paper')">
+        <img src="https://em-content.zobj.net/source/apple/391/raised-hand_270b.png">
+        <h3>Paper</h3>
+    </div>
+
+    <div class="card" onclick="play('scissors')">
+        <img src="https://em-content.zobj.net/source/apple/391/victory-hand_270c-fe0f.png">
+        <h3>Scissors</h3>
+    </div>
+
+
+        <div id="result"></div>
+    </main>
+
+    <script>
+        function play(user) {
+            const comp = ["rock", "paper", "scissors"][Math.floor(Math.random() * 3)];
+            let msg = `You chose ${user}. Computer chose ${comp}. `;
+            if (user === comp) msg += "It's a draw.";
+            else if ((user === "rock" && comp === "scissors") || (user === "paper" && comp === "rock") || (user === "scissors" && comp === "paper")) msg += "You win!";
+            else msg += "You lose.";
+            document.getElementById("result").innerHTML = msg;
+        }
+    </script>
+
+</body>
+</html>
