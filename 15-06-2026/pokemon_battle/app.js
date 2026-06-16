@@ -1,103 +1,68 @@
-let p1;
-let p2;
+async function startBattle() {
 
-async function getPokemon(name) {
-    const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${name}`);
-    return await response.json();
-}
+    let id1 = Math.floor(Math.random() * 200) + 1;
+    let id2 = Math.floor(Math.random() * 200) + 1;
 
-async function loadPokemon() {
+    let response1 = await fetch(
+        `https://pokeapi.co/api/v2/pokemon/${id1}`
+    );
 
-    const pokemon1 =
-        document.getElementById("pokemon1")
-        .value
-        .toLowerCase();
+    let response2 = await fetch(
+        `https://pokeapi.co/api/v2/pokemon/${id2}`
+    );
 
-    const pokemon2 =
-        document.getElementById("pokemon2")
-        .value
-        .toLowerCase();
-
-    p1 = await getPokemon(pokemon1);
-    p2 = await getPokemon(pokemon2);
+    let pokemon1 = await response1.json();
+    let pokemon2 = await response2.json();
 
     document.getElementById("battleArea").innerHTML = `
-    
-        <div style="display:flex;justify-content:space-between;align-items:center;">
 
-            <div>
-                <h2>${p1.name}</h2>
+    <div class="pokemon">
 
-                <img
-                    src="${p1.sprites.back_default}"
-                    width="150"
-                >
+        <h2>${pokemon1.name.toUpperCase()}</h2>
 
-                <p>
-                    Move:
-                    ${p1.moves[0].move.name}
-                </p>
-            </div>
+        <img src="${pokemon1.sprites.front_default}">
 
-            <h1>VS</h1>
+        <p>
+            Attack: ${pokemon1.stats[1].base_stat}
+        </p>
 
-            <div>
-                <h2>${p2.name}</h2>
+    </div>
 
-                <img
-                    src="${p2.sprites.front_default}"
-                    width="150"
-                >
+    <div>
 
-                <p>
-                    Move:
-                    ${p2.moves[0].move.name}
-                </p>
-            </div>
+        <h1>VS</h1>
 
-        </div>
-    `;
-}
+    </div>
 
-async function getMovePower(moveName) {
-    const response = await fetch(`https://pokeapi.co/api/v2/move/${moveName}`);
-    const move = await response.json();
-    return move.power || 20;
-}
+    <div class="pokemon">
 
-async function startBattle() {
-    const move1 = p1.moves[0].move.name;
-    const move2 = p2.moves[0].move.name;
+        <h2>${pokemon2.name.toUpperCase()}</h2>
 
-    const power1 = await getMovePower(move1);
-    const power2 = await getMovePower(move2);
+        <img src="${pokemon2.sprites.front_default}">
 
-    let hp1 = 100;
-    let hp2 = 100;
+        <p>
+            Attack: ${pokemon2.stats[1].base_stat}
+        </p>
 
-    let log = "";
+    </div>
 
-    hp2 -= power1;
+`;
+    let attack1 = pokemon1.stats[1].base_stat;
+    let attack2 = pokemon2.stats[1].base_stat;
 
-    log += `${p1.name} used ${move1}<br>`;
-    log += `${p2.name} lost ${power1} HP<br><br>`;
+    if (attack1 > attack2) {
 
-    if (hp2 <= 0) {
-        log += `${p1.name} Wins!`;
-        document.getElementById("battleLog").innerHTML = log;
-        return;
-    }
+        document.getElementById("battleLog").innerHTML =
+            `<h2>${pokemon1.name} Wins!</h2>`;
 
-    hp1 -= power2;
+    } else if (attack2 > attack1) {
 
-    log += `${p2.name} used ${move2}<br>`;
-    log += `${p1.name} lost ${power2} HP<br><br>`;
+        document.getElementById("battleLog").innerHTML =
+            `<h2>${pokemon2.name} Wins!</h2>`;
 
-    if (power1 > power2) {
-        log += `${p1.name} Wins!`;
     } else {
-        log += `${p2.name} Wins!`;
-    }
 
-    document.getElementById("battleLog").innerHTML = log;
+        document.getElementById("battleLog").innerHTML =
+            "<h2>Draw!</h2>";
+    }
 }
