@@ -1,29 +1,84 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Pokemon Battle</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pokemon Battle Simulator</title>
+
+<style>
+
+body{
+    background:#98cb98;
+    font-family:Courier New, monospace;
+    text-align:center;
+    padding:20px;
+}
+
+.container{
+    width:700px;
+    margin:auto;
+    background:#d8f8d8;
+    border:4px solid black;
+    padding:20px;
+}
+
+button{
+    background:white;
+    border:3px solid black;
+    padding:10px 20px;
+    font-size:18px;
+    cursor:pointer;
+    font-family:inherit;
+}
+
+button:hover{
+    background:#eee;
+}
+
+#battleArea{
+    margin-top:20px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:50px;
+}
+
+.pokemon{
+    text-align:center;
+}
+
+.pokemon img{
+    width:150px;
+}
+
+#battleLog{
+    margin-top:20px;
+    border:3px solid black;
+    background:white;
+    padding:15px;
+    font-size:20px;
+}
+
+</style>
 </head>
+
 <body>
 
-<h1>Pokemon Battle</h1>
+<div class="container">
 
-<input type="text" id="pokemon1" placeholder="Pokemon 1">
-<input type="text" id="pokemon2" placeholder="Pokemon 2">
+    <h1>Pokemon Battle Simulator</h1>
 
-<button onclick="loadPokemon()">Load Pokemon</button>
+    <button onclick="startBattle()">
+        Start Random Battle
+    </button>
 
-<hr>
+    <div id="battleArea"></div>
 
-<div id="battleArea"></div>
+    <div id="battleLog"></div>
 
-<br>
-
-<button onclick="startBattle()">Start Battle</button>
-
-<hr>
-
-<div id="battleLog"></div>
+</div>
 
 <script src="app.js"></script>
+
 </body>
 </html>
